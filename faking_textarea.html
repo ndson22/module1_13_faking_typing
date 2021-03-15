@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Faking_textarea</title>
+</head>
+<body >
+    <div style="display:flex; flex-direction: column">
+        <h3 style="margin-left: auto; margin-right: auto">Type anything slowly</h3>
+        <textarea id="textTyping" cols="30" rows="10" style="margin-left: auto; margin-right: auto"></textarea>
+    </div>
+<script>
+    document.getElementById("textTyping").addEventListener("keyup",function () {
+        let array = ["a"," ","b"," ", "c"," ", "d"," ", "e"];
+        let j = document.getElementById('textTyping').value;
+        console.log(j)
+        let result = "";
+        if (j.length > 0) {
+            for (let i = 0; i < j.length; i++) {
+                result = result + array[i];
+                if (i == array.length) {
+                    j = "";
+                    result = "";
+                }
+            }
+        }
+        document.getElementById('textTyping').value = result;
+        result = "";
+    })
+</script>
+</body>
+</html>
